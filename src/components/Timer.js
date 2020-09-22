@@ -24,7 +24,7 @@ class Timer extends React.Component {
             this.setState({isRunning: true})
             this.setState({intervalId: intervalId})
         }else{
-            this.props.onPlayStopTimer(false);
+            this.props.onPlayStopTimer(true);
             this.state.isRunning = false;
             clearInterval(this.state.intervalId);
         }
@@ -61,7 +61,7 @@ class Timer extends React.Component {
     }
 
     resetTimer(){
-        this.props.onPlayStopTimer(true);
+        this.props.onPlayStopTimer(false);
         if( this.state.isRunning === true ){
             this.setState({
                     isRunning : false,
@@ -74,9 +74,7 @@ class Timer extends React.Component {
             isSession : true,
         })
     }
-    onPlayStopTimer() {
-        this.props.onPlayStopTimer();
-    }
+
 
     render() {
         return (
@@ -100,7 +98,7 @@ class Timer extends React.Component {
                         </span>
                     </div>
                 </section>
-                <audio id="beep"></audio>
+                <audio id="beep" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"></audio>
             </section>
                 <div>
                     <button id="start_stop"

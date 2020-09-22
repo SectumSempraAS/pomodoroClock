@@ -7,6 +7,7 @@ function SessionLength(props){
             return;
 
         props.increaseSession();
+
     }
     function decreaseCounter(){
         if( props.sessionLength === 1 )

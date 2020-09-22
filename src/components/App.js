@@ -58,7 +58,7 @@ class App extends React.Component {
         this.setState(prevState => {
             return{
                 sessionLength: prevState.sessionLength - 1,
-                timerMinute: prevState.sessionLength - 1
+                timerMinute: prevState.sessionLength - 1,
             }
         })
     }
@@ -74,6 +74,7 @@ class App extends React.Component {
               timerMinute: this.state.sessionLength
           })
       } else {
+
           this.setState({
               timerMinute: this.state.breakLength
           })
