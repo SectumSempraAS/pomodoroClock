@@ -98,7 +98,6 @@ class Timer extends React.Component {
                         </span>
                     </div>
                 </section>
-                <audio id="beep" src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"></audio>
             </section>
                 <div>
                     <button id="start_stop"

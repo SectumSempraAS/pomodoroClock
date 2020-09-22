@@ -9,9 +9,10 @@ class App extends React.Component {
     super();
     this.state = {
       breakLength : 5,
+      isPlay : false,
       sessionLength : 25,
       timerMinute : 25,
-        isPlay : false,
+      audioPlay : false,
     }
     this.onIncreaseBreakLength = this.onIncreaseBreakLength.bind(this);
     this.onDecreaseBreakLength = this.onDecreaseBreakLength.bind(this);
@@ -30,6 +31,11 @@ class App extends React.Component {
           timerMinute : 25,
           breakLength : 5,
       })
+
+      if( this.state.audioPlay ){
+          document.getElementById('beep').pause();
+          this.setState({audioPlay : false})
+      }
   }
 
   onIncreaseBreakLength () {
@@ -74,10 +80,11 @@ class App extends React.Component {
               timerMinute: this.state.sessionLength
           })
       } else {
-
           this.setState({
-              timerMinute: this.state.breakLength
+              timerMinute: this.state.breakLength,
+              audioPlay: true
           })
+          document.getElementById('beep').play();
       }
     }
 
@@ -111,7 +118,8 @@ class App extends React.Component {
                 reset={this.resetTimer}
                 onPlayStopTimer={this.onPlayStopTimer}
             />
-
+            <audio id="beep"
+                   src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"></audio>
         </main>
     );
   }
